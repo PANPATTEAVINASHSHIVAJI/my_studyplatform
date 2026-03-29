@@ -1,18 +1,20 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #f3f3ff;
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #ffffff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
     min-height: 100vh;
+    background-attachment: fixed;
 }
     /* HOME SECTION */
 .home {
     padding: 40px 30px;
-    background: linear-gradient(135deg, rgba(42, 117, 203, 0.85), rgba(31, 185, 255, 0.5));
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(255, 177, 153, 0.8), rgba(255, 218, 193, 0.7));
     border-radius: 20px;
     margin: 20px;
-    border: 1px solid rgba(255,255,255,0.16);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 16px 40px rgba(255, 107, 107, 0.3);
+    color: #2d3748;
 }
 
 .home p {
@@ -24,13 +26,15 @@ h2 {
     margin-top: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    color: #f1f7ff;
+    color: #ffffff;
     letter-spacing: 0.4px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(120deg, rgba(72,125,197,0.9), rgba(54,14,114,0.7));
-    padding: 8px 0;
-    border-radius: 12px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(120deg, #ff6b6b, #ffa500, #ffff00, #32cd32, #1e90ff, #9370db);
+    padding: 12px 0;
+    border-radius: 15px;
     margin: 35px 20px 10px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Title */
@@ -47,22 +51,25 @@ h1 {
 }
 
 .categories button {
-    padding: 10px 18px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.08);
-    color: #e0f7ff;
-    border-radius: 999px;
+    padding: 12px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    color: #ffffff;
+    border-radius: 25px;
     cursor: pointer;
     font-weight: 700;
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    transition: all 0.24s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .categories button:hover,
 .categories button.active {
-    background: rgba(74, 193, 255, 0.95);
-    color: #052f57;
-    border-color: rgba(0, 144, 255, 0.9);
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: #ffffff;
+    border-color: rgba(255, 107, 107, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
 }
 
 /* Book Grid */
@@ -75,18 +82,20 @@ h1 {
 
 /* Book Card */
 .book-card {
-    background: linear-gradient(145deg, rgba(17, 25, 63, 0.95), rgba(25, 61, 121, 0.88));
-    color: #e9f5ff;
-    padding: 22px;
-    border-radius: 18px;
-    border: 1px solid rgba(149, 208, 255, 0.35);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 235, 235, 0.9));
+    color: #2d3748;
+    padding: 24px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .book-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.45);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 24px 40px rgba(255, 107, 107, 0.3);
+    border-color: rgba(255, 107, 107, 0.5);
 }
 
 .book-card h3 {
@@ -116,33 +125,42 @@ h1 {
 /* Button */
 .book-card button {
     margin-top: 10px;
-    padding: 8px 15px;
+    padding: 10px 16px;
     border: none;
-    background:green;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .book-card button:hover {
-    background: #007bff;
+    background: linear-gradient(135deg, #ff5252, #ff8c00);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
 }
 
 .read-link,
 .book-card a.link {
     display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background: green;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .read-link:hover,
 .book-card a.link:hover {
-    background: #007bff;
+    background: linear-gradient(135deg, #26d0ce, #2e8b57);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(78, 205, 196, 0.4);
+    border-color: rgba(78, 205, 196, 0.5);
 }
 
 button:focus,
@@ -158,46 +176,53 @@ a:focus {
 .search-bar input {
     width: 100%;
     max-width: 460px;
-    padding: 11px 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: rgba(245, 250, 255, 0.12);
-    color: #ebf4ff;
-    box-shadow: inset 0 4px 12px rgba(0,0,0,0.25);
+    padding: 14px 18px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    box-shadow: inset 0 4px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    font-size: 16px;
 }
 
 .search-bar input::placeholder {
-    color: #c0d7f0;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .bookmark-btn {
     margin-top: 10px;
     margin-left: 10px;
-    background: #1c93ff;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff;
-    border: 1px solid #0d63b2;
-    border-radius: 10px;
-    padding: 8px 12px;
+    border: 2px solid rgba(102, 126, 234, 0.5);
+    border-radius: 12px;
+    padding: 10px 14px;
     cursor: pointer;
     font-weight: 700;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .bookmark-btn:hover {
-    background: #0b62bc;
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+    border-color: rgba(102, 126, 234, 0.8);
 }
 
 .study-list {
     margin: 0 20px 20px;
-    padding: 14px 18px;
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 15px;
-    background: rgba(16, 21, 42, 0.72);
+    padding: 18px 22px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
 }
 
 .study-list h2 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
+    color: #ffffff;
 }
 
 #study-list-items {
@@ -219,24 +244,31 @@ a:focus {
 }
 
 .remove-btn {
-    border: 1px solid #ff6a6a;
-    background: #ff4d4d;
+    border: 2px solid rgba(255, 107, 107, 0.8);
+    background: linear-gradient(135deg, #ff6b6b, #ff8c69);
     color: #fff;
-    border-radius: 8px;
-    padding: 4px 10px;
+    border-radius: 10px;
+    padding: 6px 12px;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .remove-btn:hover {
-    background: #db2b2b;
+    background: linear-gradient(135deg, #ff5252, #ff6b43);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+    border-color: rgba(255, 107, 107, 1);
 }
 
 .quiz-section {
     margin: 20px;
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 14px;
-    background: rgba(18, 24, 52, 0.82);
-    padding: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    color: #ffffff;
 }
 
 .quiz-control {
@@ -247,27 +279,100 @@ a:focus {
 }
 
 .quiz-card {
-    margin-top: 8px;
-    padding: 12px;
-    border: 1px solid rgba(106, 182, 255, 0.4);
-    border-radius: 10px;
-    background: rgba(15, 22, 45, 0.9);
+    margin-top: 12px;
+    padding: 16px;
+    border: 2px solid rgba(78, 205, 196, 0.4);
+    border-radius: 12px;
+    background: rgba(78, 205, 196, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .quiz-option {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 8px;
-    margin: 4px 0;
-    border: 1px solid rgba(169, 218, 255, 0.5);
-    border-radius: 8px;
-    background: rgba(225, 235, 255, 0.05);
-    color: #f1f8ff;
+    padding: 12px;
+    margin: 6px 0;
+    border: 2px solid rgba(78, 205, 196, 0.3);
+    border-radius: 10px;
+    background: rgba(78, 205, 196, 0.05);
+    color: #ffffff;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .quiz-option:hover {
-    background: rgba(106, 182, 255, 0.15);
+    background: rgba(78, 205, 196, 0.2);
+    border-color: rgba(78, 205, 196, 0.6);
+    transform: translateX(5px);
+}
+
+/* Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.top-nav .logo {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.top-nav .tagline {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* Footer */
+.site-footer {
+    margin: 40px 20px 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    
+    .categories {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .categories button {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+    
+    .book-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
 }
 
