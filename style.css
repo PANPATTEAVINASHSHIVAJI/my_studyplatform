@@ -1210,6 +1210,427 @@ a:focus {
     display: none;
 }
 
+/* ============================================ */
+/* 📱 MOBILE RESPONSIVE STYLES (768px and below) */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    /* ✅ Library Header */
+    .library-header {
+        padding: 20px 10px;
+    }
+    
+    .library-header h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+    
+    #welcome-text {
+        font-size: 1em;
+    }
+    
+    /* ✅ Navigation Tabs */
+    .nav-tabs {
+        gap: 8px;
+        margin-top: 15px;
+    }
+    
+    .nav-tab {
+        padding: 10px 16px;
+        font-size: 0.9em;
+        border-radius: 20px;
+    }
+    
+    /* ✅ Cart Controls - FIX FOR MOBILE */
+    .cart-controls {
+        position: fixed;
+        top: 75px;
+        right: 10px;
+        left: 10px;
+        display: flex;
+        gap: 8px;
+        z-index: 500;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: auto;
+    }
+    
+    .cart-icon-btn,
+    .order-history-btn {
+        padding: 10px 14px;
+        font-size: 0.85em;
+        white-space: nowrap;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* ✅ Logout Button */
+    .logout-button {
+        top: 10px;
+        right: 10px;
+        padding: 10px 16px;
+        font-size: 0.9em;
+    }
+    
+    /* ✅ Cart Sidebar - Responsive Width */
+    .cart-sidebar {
+        width: 90vw;
+        max-width: 350px;
+        right: 0;
+    }
+    
+    .cart-header {
+        padding: 15px;
+    }
+    
+    .cart-header h2 {
+        font-size: 1.3em;
+    }
+    
+    /* ✅ Shop Section */
+    .shop-filters {
+        padding: 15px 10px;
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+    
+    /* ✅ Book Grid - Responsive */
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .shop-book-card {
+        padding: 15px;
+    }
+    
+    .shop-book-card .book-icon {
+        font-size: 2.5em;
+    }
+    
+    .shop-book-card h3 {
+        font-size: 1em;
+        margin: 8px 0 4px;
+    }
+    
+    .shop-book-card .description {
+        font-size: 0.85em;
+        margin: 6px 0;
+    }
+    
+    .book-footer {
+        margin-top: 10px;
+        padding-top: 8px;
+    }
+    
+    .price {
+        font-size: 1.2em;
+    }
+    
+    .add-to-cart-btn {
+        padding: 8px 12px;
+        font-size: 0.85em;
+        min-height: 40px;
+    }
+    
+    /* ✅ Modal - Responsive */
+    .modal-content {
+        width: 95vw;
+        max-width: 500px;
+        padding: 20px;
+        max-height: 85vh;
+    }
+    
+    .modal-close {
+        width: 36px;
+        height: 36px;
+        font-size: 1.5em;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+    
+    /* ✅ Checkout Form */
+    .checkout-form input {
+        padding: 12px;
+        font-size: 16px;
+        min-height: 44px;
+    }
+    
+    .place-order-btn {
+        min-height: 44px;
+        font-size: 1em;
+    }
+    
+    /* ✅ Library Section */
+    .library-section {
+        padding: 20px 10px;
+        margin: 15px auto;
+    }
+    
+    .library-section h2 {
+        font-size: 1.3em;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    /* ✅ Book Card */
+    .book-card {
+        padding: 15px;
+    }
+    
+    .book-card a {
+        padding: 8px 12px;
+        font-size: 1em;
+        min-height: 40px;
+    }
+    
+    .book-desc {
+        font-size: 0.85em;
+    }
+    
+    /* ✅ Buttons - Touch Friendly */
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ============================================ */
+/* 📱 SMALL SCREENS (480px and below) */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    /* ✅ Header */
+    .library-header {
+        padding: 15px 8px;
+    }
+    
+    .library-header h1 {
+        font-size: 1.4em;
+        margin: 0;
+    }
+    
+    #welcome-text {
+        font-size: 0.9em;
+        margin-top: 8px;
+    }
+    
+    /* ✅ Navigation Tabs - Stack on very small screens */
+    .nav-tabs {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .nav-tab {
+        width: 100%;
+        padding: 10px 12px;
+    }
+    
+    /* ✅ Buttons at top */
+    .logout-button {
+        top: 8px;
+        right: 8px;
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+    
+    .cart-controls {
+        top: 60px;
+        right: 8px;
+        left: 8px;
+        gap: 6px;
+    }
+    
+    .cart-icon-btn,
+    .order-history-btn {
+        flex: 1;
+        padding: 8px 10px;
+        font-size: 0.75em;
+    }
+    
+    /* ✅ Book Grid - Single or double column */
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        padding: 8px;
+    }
+    
+    .shop-book-card {
+        padding: 12px;
+    }
+    
+    .shop-book-card .book-icon {
+        font-size: 2em;
+    }
+    
+    .shop-book-card h3 {
+        font-size: 0.9em;
+        margin: 6px 0 2px;
+    }
+    
+    /* ✅ Modal Full Width */
+    .modal-content {
+        width: 98vw;
+        padding: 15px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.2em;
+    }
+    
+    /* ✅ Cart Sidebar Full Width */
+    .cart-sidebar {
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* ✅ Library Section */
+    .library-section {
+        padding: 15px 8px;
+        margin: 10px auto;
+    }
+    
+    .library-section h2 {
+        font-size: 1.1em;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    
+    /* ✅ Forms */
+    .checkout-form input {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .place-order-btn {
+        min-height: 44px;
+        font-size: 0.95em;
+    }
+    
+    /* ✅ Cart Items */
+    .cart-item {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .cart-item-actions {
+        gap: 6px;
+    }
+    
+    .cart-item-actions button {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* ✅ Order Card */
+    .order-card {
+        padding: 10px;
+    }
+    
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .view-details-btn {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.order-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(78, 205, 196, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.order-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(78, 205, 196, 0.6);
+    transform: translateX(5px);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-header strong {
+    color: #4ecdc4;
+    font-size: 1.1em;
+}
+
+.order-status {
+    background: rgba(78, 205, 196, 0.2);
+    color: #4ecdc4;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.order-date {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 5px 0;
+}
+
+.order-total {
+    font-size: 1.2em;
+    color: #27ae60;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.view-details-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.view-details-btn:hover {
+    background: linear-gradient(135deg, #26d0ce, #2e8b57);
+    transform: translateY(-2px);
+}
+
+/* ✅ SECTION CONTENT */
+.section-content {
+    animation: fadeIn 0.3s ease;
+}
+
+.section-content.hidden {
+    display: none;
+}
+
 .error-msg {
     min-height: 18px;
     margin-bottom: 8px;
