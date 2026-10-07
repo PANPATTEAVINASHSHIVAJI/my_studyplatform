@@ -364,10 +364,20 @@ function displayShopBooks(books) {
             <p class="category"><small>${book.category}</small></p>
             <div class="book-footer">
                 <span class="price">₹${book.price.toFixed(2)}</span>
-                <button onclick="addToCart(${book.id}, '${book.title}', ${book.price})" class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" data-book-id="${book.id}" data-book-title="${book.title.replace(/"/g, '&quot;')}" data-book-price="${book.price}">Add to Cart</button>
             </div>
         </div>
     `).join('');
+    
+    // ✅ Add event listeners to all add-to-cart buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const bookId = parseInt(this.getAttribute('data-book-id'));
+            const bookTitle = this.getAttribute('data-book-title');
+            const bookPrice = parseFloat(this.getAttribute('data-book-price'));
+            addToCart(bookId, bookTitle, bookPrice);
+        });
+    });
 }
 
 // ✅ FILTER BOOKS
