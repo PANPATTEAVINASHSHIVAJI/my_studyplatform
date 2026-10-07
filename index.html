@@ -30,67 +30,142 @@
 🚪 Logout
 </button>
 
-<!-- MAIN LIBRARY (YOUR CONTENT SAME) -->
+<!-- CART ICON & BUTTON -->
+<div id="cart-controls" class="cart-controls hidden">
+    <button onclick="toggleCart()" class="cart-icon-btn">
+        🛒 Cart (<span id="cart-count">0</span>)
+    </button>
+    <button onclick="showOrderHistory()" class="order-history-btn">
+        📦 My Orders
+    </button>
+</div>
+
+<!-- SHOPPING CART SIDEBAR -->
+<div id="cart-sidebar" class="cart-sidebar hidden">
+    <div class="cart-header">
+        <h2>🛒 Shopping Cart</h2>
+        <button onclick="toggleCart()" class="close-btn">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items-list"></div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <strong>Total: ₹<span id="cart-total">0</span></strong>
+        </div>
+        <button onclick="proceedToCheckout()" class="checkout-btn">Proceed to Checkout</button>
+        <button onclick="toggleCart()" class="continue-shopping-btn">Continue Shopping</button>
+    </div>
+</div>
+
+<!-- MAIN LIBRARY -->
 <main id="app-content" class="hidden">
 
+    <!-- NAVIGATION TABS -->
     <div class="library-header">
-        <h1>📚 Online Access Library</h1>
+        <h1>📚 Online Library</h1>
         <p id="welcome-text"></p>
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchSection('read')">📖 Read Online (Free)</button>
+            <button class="nav-tab" onclick="switchSection('shop')">🛍️ Buy Books</button>
+        </div>
     </div>
 
-    <div class="library-section">
-        <h2>💻 Computer Science</h2>
-        <div class="book-grid">
-            <div class="book-card" style="border-left: 4px solid #3498db;">
-                <div class="book-icon">💾</div>
-                <a href="ds.html">Data Structure</a>
-                <p class="book-desc">Learn about arrays, linked lists, trees & graphs</p>
+    <!-- READ ONLINE SECTION -->
+    <div id="read-section" class="section-content">
+        <div class="library-section">
+            <h2>💻 Computer Science</h2>
+            <div class="book-grid">
+                <div class="book-card" style="border-left: 4px solid #3498db;">
+                    <div class="book-icon">💾</div>
+                    <a href="ds.html">Data Structure</a>
+                    <p class="book-desc">Learn about arrays, linked lists, trees & graphs</p>
+                </div>
+                <div class="book-card" style="border-left: 4px solid #e74c3c;">
+                    <div class="book-icon">🗄️</div>
+                    <a href="dbms.html">DBMS</a>
+                    <p class="book-desc">Database management systems & SQL</p>
+                </div>
+                <div class="book-card" style="border-left: 4px solid #2ecc71;">
+                    <div class="book-icon">⚙️</div>
+                    <a href="os.html">Operating System</a>
+                    <p class="book-desc">Process management, memory & scheduling</p>
+                </div>
+                <div class="book-card" style="border-left: 4px solid #f39c12;">
+                    <div class="book-icon">🏗️</div>
+                    <a href="se.html">Software Engineering</a>
+                    <p class="book-desc">Design patterns, SDLC & best practices</p>
+                </div>
             </div>
-            <div class="book-card" style="border-left: 4px solid #e74c3c;">
-                <div class="book-icon">🗄️</div>
-                <a href="dbms.html">DBMS</a>
-                <p class="book-desc">Database management systems & SQL</p>
-            </div>
-            <div class="book-card" style="border-left: 4px solid #2ecc71;">
-                <div class="book-icon">⚙️</div>
-                <a href="os.html">Operating System</a>
-                <p class="book-desc">Process management, memory & scheduling</p>
-            </div>
-            <div class="book-card" style="border-left: 4px solid #f39c12;">
-                <div class="book-icon">🏗️</div>
-                <a href="se.html">Software Engineering</a>
-                <p class="book-desc">Design patterns, SDLC & best practices</p>
+        </div>
+
+        <div class="library-section">
+            <h2>⚖️ Law / LLB</h2>
+            <div class="book-grid">
+                <div class="book-card" style="border-left: 4px solid #8e44ad;">
+                    <div class="book-icon">📘</div>
+                    <a href="llb.html#constitutional">Constitutional Law</a>
+                    <p class="book-desc">Fundamental rights, directive principles, and constitutional framework</p>
+                </div>
+                <div class="book-card" style="border-left: 4px solid #16a085;">
+                    <div class="book-icon">📝</div>
+                    <a href="llb.html#contract">Contract Law</a>
+                    <p class="book-desc">Offer, acceptance, consideration, breach, and legal remedies</p>
+                </div>
+                <div class="book-card" style="border-left: 4px solid #c0392b;">
+                    <div class="book-icon">⚖️</div>
+                    <a href="llb.html#criminal">Criminal Law</a>
+                    <p class="book-desc">Offences, punishments, and criminal procedure basics</p>
+                </div>
+                <div class="book-card" style="border-left: 4px solid #f39c12;">
+                    <div class="book-icon">📚</div>
+                    <a href="llb.html#jurisprudence">Jurisprudence</a>
+                    <p class="book-desc">Schools of legal thought and theory of law</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="library-section">
-        <h2>⚖️ Law / LLB</h2>
-        <div class="book-grid">
-            <div class="book-card" style="border-left: 4px solid #8e44ad;">
-                <div class="book-icon">📘</div>
-                <a href="llb.html#constitutional">Constitutional Law</a>
-                <p class="book-desc">Fundamental rights, directive principles, and constitutional framework</p>
-            </div>
-            <div class="book-card" style="border-left: 4px solid #16a085;">
-                <div class="book-icon">📝</div>
-                <a href="llb.html#contract">Contract Law</a>
-                <p class="book-desc">Offer, acceptance, consideration, breach, and legal remedies</p>
-            </div>
-            <div class="book-card" style="border-left: 4px solid #c0392b;">
-                <div class="book-icon">⚖️</div>
-                <a href="llb.html#criminal">Criminal Law</a>
-                <p class="book-desc">Offences, punishments, and criminal procedure basics</p>
-            </div>
-            <div class="book-card" style="border-left: 4px solid #f39c12;">
-                <div class="book-icon">📚</div>
-                <a href="llb.html#jurisprudence">Jurisprudence</a>
-                <p class="book-desc">Schools of legal thought and theory of law</p>
-            </div>
+    <!-- SHOP SECTION -->
+    <div id="shop-section" class="section-content hidden">
+        <div class="shop-filters">
+            <button class="filter-btn active" onclick="filterBooks('All')">All Books</button>
+            <button class="filter-btn" onclick="filterBooks('Computer Science')">💻 Computer Science</button>
+            <button class="filter-btn" onclick="filterBooks('Law')">⚖️ Law</button>
         </div>
+        <div id="shop-books-container" class="book-grid"></div>
     </div>
 
 </main>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkout-modal" class="modal hidden">
+    <div class="modal-content">
+        <button onclick="closeCheckout()" class="modal-close">✕</button>
+        <h2>📦 Order Summary</h2>
+        
+        <div id="checkout-items" class="checkout-items"></div>
+        
+        <div class="checkout-total">
+            <h3>Total: ₹<span id="checkout-total">0</span></h3>
+        </div>
+
+        <form id="checkout-form" class="checkout-form">
+            <input type="email" id="delivery-address" placeholder="Delivery Address" required>
+            <input type="tel" id="phone-number" placeholder="Phone Number" required>
+            <button type="submit" class="place-order-btn">Place Order</button>
+        </form>
+
+        <div id="checkout-error" style="color: #ff6b6b; margin-top: 10px;"></div>
+    </div>
+</div>
+
+<!-- ORDER HISTORY MODAL -->
+<div id="order-history-modal" class="modal hidden">
+    <div class="modal-content">
+        <button onclick="closeOrderHistory()" class="modal-close">✕</button>
+        <h2>📦 Order History</h2>
+        <div id="order-history-list" class="order-history-list"></div>
+    </div>
+</div>
 
 <script>
 const form = document.getElementById("auth-form");
@@ -99,11 +174,28 @@ const passwordInput = document.getElementById("password");
 const errorMsg = document.getElementById("error-msg");
 const toggleAuth = document.getElementById("toggle-auth");
 const logoutBtn = document.getElementById("logout-btn");
+const cartControls = document.getElementById("cart-controls");
 
 let registerMode = false;
-const apiBase = (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")
-    ? "http://127.0.0.1:5000"
-    : null;
+let currentUser = null;
+let allBooks = [];
+let cart = [];
+
+const flaskOrigin = "http://127.0.0.1:5000";
+const apiBase = window.location.origin === flaskOrigin ? "" : flaskOrigin;
+
+function getClientId() {
+    let clientId = localStorage.getItem("library_client_id");
+    if (!clientId) {
+        if (window.crypto && window.crypto.randomUUID) {
+            clientId = window.crypto.randomUUID();
+        } else {
+            clientId = "client-" + Date.now() + "-" + Math.floor(Math.random() * 100000);
+        }
+        localStorage.setItem("library_client_id", clientId);
+    }
+    return clientId;
+}
 
 function getStoredUsers() {
     try {
@@ -119,7 +211,6 @@ function setStoredUsers(users) {
 
 function localAuth(username, password, isRegister) {
     const users = getStoredUsers();
-
     if (isRegister) {
         if (users[username]) {
             return { ok: false, message: "User already exists" };
@@ -128,43 +219,57 @@ function localAuth(username, password, isRegister) {
         setStoredUsers(users);
         return { ok: true, message: "success" };
     }
-
     if (users[username] && users[username] === password) {
         return { ok: true, message: "success" };
     }
-
     return { ok: false, message: "Invalid login" };
 }
 
 // ✅ SHOW LIBRARY
 function showApp(username) {
+    currentUser = username;
     document.getElementById("login-overlay").style.display = "none";
-
     const app = document.getElementById("app-content");
     app.classList.remove("hidden");
     app.style.display = "block";
-
     logoutBtn.style.display = "block";
-
+    cartControls.classList.remove("hidden");
     localStorage.setItem("user", username);
-
     document.getElementById("welcome-text").innerText = "Welcome, " + username;
+    
+    // ✅ Close all modals on login
+    document.getElementById("checkout-modal").classList.add("hidden");
+    document.getElementById("order-history-modal").classList.add("hidden");
+    document.getElementById("cart-sidebar").classList.add("hidden");
+    
+    // Reset checkout form
+    document.getElementById("checkout-form").reset();
+    document.getElementById("checkout-error").textContent = "";
+    
+    loadShopBooks();
 }
 
 // ✅ SHOW LOGIN
 function showLogin() {
+    currentUser = null;
     document.getElementById("login-overlay").style.display = "flex";
-
     const app = document.getElementById("app-content");
     app.classList.add("hidden");
-
     logoutBtn.style.display = "none";
+    cartControls.classList.add("hidden");
+    
+    // ✅ Close all modals on logout
+    document.getElementById("checkout-modal").classList.add("hidden");
+    document.getElementById("order-history-modal").classList.add("hidden");
+    document.getElementById("cart-sidebar").classList.add("hidden");
+    
+    cart = [];
+    updateCartUI();
 }
 
 // ✅ LOGIN / REGISTER
 form.addEventListener("submit", async function(e){
     e.preventDefault();
-
     const username = usernameInput.value.trim();
     const password = passwordInput.value;
     errorMsg.textContent = "";
@@ -174,63 +279,320 @@ form.addEventListener("submit", async function(e){
         return;
     }
 
-    if (!apiBase) {
-        const result = localAuth(username, password, registerMode);
-        if (result.ok) {
-            showApp(username);
-        } else {
-            errorMsg.textContent = result.message;
-        }
-        return;
-    }
-
-    const url = registerMode 
-        ? apiBase + "/signup"
-        : apiBase + "/login";
+    const url = registerMode ? `${apiBase}/signup` : `${apiBase}/login`;
 
     try {
         const res = await fetch(url, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                "Content-Type": "application/json",
+                "X-Client-Id": getClientId()
+            },
             body: JSON.stringify({ username, password })
         });
-
         const data = await res.json();
-
         if (data.message.toLowerCase().includes("success")) {
             showApp(username);
+            usernameInput.value = "";
+            passwordInput.value = "";
         } else {
             errorMsg.textContent = data.message;
         }
-
     } catch (err) {
         console.error("Request error:", err);
-        errorMsg.textContent = "Server error - Make sure Flask is running on http://127.0.0.1:5000";
+        const result = localAuth(username, password, registerMode);
+        if (result.ok) {
+            showApp(username);
+            usernameInput.value = "";
+            passwordInput.value = "";
+        } else {
+            errorMsg.textContent = "Server error - Make sure Flask is running";
+        }
     }
 });
 
 // ✅ TOGGLE LOGIN/REGISTER
 toggleAuth.addEventListener("click", () => {
     registerMode = !registerMode;
-
-    toggleAuth.textContent = registerMode
-        ? "Already have account? Login"
-        : "New user? Register";
-
-    document.getElementById("login-btn").textContent =
-        registerMode ? "Register" : "Login";
+    toggleAuth.textContent = registerMode ? "Already have account? Login" : "New user? Register";
+    document.getElementById("login-btn").textContent = registerMode ? "Register" : "Login";
 });
 
-// ✅ LOGOUT FUNCTION
+// ✅ LOGOUT
 function logout() {
     localStorage.removeItem("user");
     showLogin();
 }
 
+// ✅ SWITCH BETWEEN READ AND SHOP SECTIONS
+function switchSection(section) {
+    document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    document.getElementById('read-section').classList.add('hidden');
+    document.getElementById('shop-section').classList.add('hidden');
+    
+    if (section === 'read') {
+        document.getElementById('read-section').classList.remove('hidden');
+    } else {
+        document.getElementById('shop-section').classList.remove('hidden');
+    }
+}
+
+// ✅ LOAD BOOKS FROM SERVER
+async function loadShopBooks() {
+    try {
+        const res = await fetch(`${apiBase}/api/books`);
+        const data = await res.json();
+        allBooks = data.books;
+        displayShopBooks(allBooks);
+    } catch (err) {
+        console.error("Error loading books:", err);
+    }
+}
+
+// ✅ DISPLAY BOOKS IN SHOP
+function displayShopBooks(books) {
+    const container = document.getElementById('shop-books-container');
+    container.innerHTML = books.map(book => `
+        <div class="shop-book-card">
+            <div class="book-icon">${book.icon}</div>
+            <h3>${book.title}</h3>
+            <p class="author">by ${book.author}</p>
+            <p class="description">${book.description}</p>
+            <p class="category"><small>${book.category}</small></p>
+            <div class="book-footer">
+                <span class="price">₹${book.price.toFixed(2)}</span>
+                <button onclick="addToCart(${book.id}, '${book.title}', ${book.price})" class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ✅ FILTER BOOKS
+function filterBooks(category) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (category === 'All') {
+        displayShopBooks(allBooks);
+    } else {
+        displayShopBooks(allBooks.filter(b => b.category === category));
+    }
+}
+
+// ✅ ADD TO CART
+function addToCart(bookId, title, price) {
+    const existing = cart.find(item => item.bookId === bookId);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ bookId, title, price, quantity: 1 });
+    }
+    updateCartUI();
+    alert(`✅ "${title}" added to cart!`);
+}
+
+// ✅ UPDATE CART UI
+function updateCartUI() {
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+    const cartItemsList = document.getElementById('cart-items');
+    
+    cartCount.textContent = cart.length;
+    
+    let total = 0;
+    cartItemsList.innerHTML = cart.map((item, idx) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        return `
+            <div class="cart-item">
+                <div class="cart-item-info">
+                    <strong>${item.title}</strong>
+                    <p>₹${item.price} × ${item.quantity}</p>
+                </div>
+                <div class="cart-item-actions">
+                    <button onclick="updateQuantity(${idx}, -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="updateQuantity(${idx}, 1)">+</button>
+                    <button onclick="removeFromCart(${idx})" class="remove-btn">🗑️</button>
+                </div>
+                <div class="cart-item-subtotal">₹${subtotal.toFixed(2)}</div>
+            </div>
+        `;
+    }).join('');
+    
+    cartTotal.textContent = total.toFixed(2);
+}
+
+// ✅ UPDATE QUANTITY
+function updateQuantity(idx, change) {
+    cart[idx].quantity += change;
+    if (cart[idx].quantity <= 0) {
+        removeFromCart(idx);
+    } else {
+        updateCartUI();
+    }
+}
+
+// ✅ REMOVE FROM CART
+function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    updateCartUI();
+}
+
+// ✅ TOGGLE CART SIDEBAR
+function toggleCart() {
+    const sidebar = document.getElementById('cart-sidebar');
+    sidebar.classList.toggle('hidden');
+}
+
+// ✅ PROCEED TO CHECKOUT
+function proceedToCheckout() {
+    if (cart.length === 0) {
+        alert("Cart is empty!");
+        return;
+    }
+    
+    // Close order history modal if open
+    closeOrderHistory();
+    
+    const checkoutModal = document.getElementById('checkout-modal');
+    const checkoutItems = document.getElementById('checkout-items');
+    const checkoutTotal = document.getElementById('checkout-total');
+    
+    let total = 0;
+    checkoutItems.innerHTML = cart.map(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        return `
+            <div class="order-item">
+                <strong>${item.title}</strong>
+                <p>₹${item.price} × ${item.quantity} = ₹${subtotal.toFixed(2)}</p>
+            </div>
+        `;
+    }).join('');
+    
+    checkoutTotal.textContent = total.toFixed(2);
+    checkoutModal.classList.remove('hidden');
+    document.getElementById('cart-sidebar').classList.add('hidden');
+    document.getElementById('checkout-error').textContent = '';
+}
+
+// ✅ PLACE ORDER
+document.getElementById('checkout-form')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const address = document.getElementById('delivery-address').value.trim();
+    const phone = document.getElementById('phone-number').value.trim();
+    const checkoutError = document.getElementById('checkout-error');
+    
+    if (!address || !phone) {
+        checkoutError.textContent = "Please fill in all fields";
+        return;
+    }
+    
+    if (!currentUser) {
+        checkoutError.textContent = "User not logged in";
+        return;
+    }
+    
+    try {
+        const res = await fetch(`${apiBase}/api/orders`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                username: currentUser,
+                items: cart.map(item => ({ book_id: item.bookId, quantity: item.quantity })),
+                address,
+                phone
+            })
+        });
+        
+        const data = await res.json();
+        
+        if (res.ok) {
+            alert(`✅ Order placed successfully!\nOrder ID: ${data.order_id}\nTotal: ₹${data.total_price}`);
+            cart = [];
+            updateCartUI();
+            closeCheckout();
+        } else {
+            checkoutError.textContent = data.message || "Order placement failed";
+        }
+    } catch (err) {
+        console.error("Order error:", err);
+        checkoutError.textContent = "Error placing order";
+    }
+});
+
+// ✅ CLOSE CHECKOUT
+function closeCheckout() {
+    document.getElementById('checkout-modal').classList.add('hidden');
+    document.getElementById('delivery-address').value = '';
+    document.getElementById('phone-number').value = '';
+    document.getElementById('checkout-error').textContent = '';
+}
+
+// ✅ SHOW ORDER HISTORY
+async function showOrderHistory() {
+    if (!currentUser) return;
+    
+    // Close checkout modal if open
+    closeCheckout();
+    
+    try {
+        const res = await fetch(`${apiBase}/api/orders/${currentUser}`);
+        const data = await res.json();
+        
+        const orderList = document.getElementById('order-history-list');
+        if (data.orders.length === 0) {
+            orderList.innerHTML = '<p>No orders yet</p>';
+        } else {
+            orderList.innerHTML = data.orders.map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <strong>Order #${order.id}</strong>
+                        <span class="order-status">${order.status}</span>
+                    </div>
+                    <p class="order-date">${order.date}</p>
+                    <p class="order-total">₹${order.total.toFixed(2)}</p>
+                    <button onclick="viewOrderDetails(${order.id})" class="view-details-btn">View Details</button>
+                </div>
+            `).join('');
+        }
+        
+        document.getElementById('order-history-modal').classList.remove('hidden');
+    } catch (err) {
+        console.error("Error loading orders:", err);
+        alert("Error loading orders. Please try again.");
+    }
+}
+
+// ✅ VIEW ORDER DETAILS
+async function viewOrderDetails(orderId) {
+    try {
+        const res = await fetch(`${apiBase}/api/order-details/${orderId}`);
+        const data = await res.json();
+        
+        alert(`📦 Order #${data.order_id}\nDate: ${data.order_date}\nStatus: ${data.status}\n\nItems:\n${data.items.map(item => `• ${item.title} (${item.quantity}x ₹${item.price})`).join('\n')}\n\nTotal: ₹${data.total_price}\nDelivery: ${data.delivery_address}\nPhone: ${data.phone}`);
+    } catch (err) {
+        console.error("Error loading order details:", err);
+    }
+}
+
+// ✅ CLOSE ORDER HISTORY
+function closeOrderHistory() {
+    document.getElementById('order-history-modal').classList.add('hidden');
+}
+
 // ✅ AUTO LOGIN
 window.onload = function() {
+    // ✅ Ensure all modals are hidden on page load
+    document.getElementById("checkout-modal").classList.add("hidden");
+    document.getElementById("order-history-modal").classList.add("hidden");
+    document.getElementById("cart-sidebar").classList.add("hidden");
+    
     const user = localStorage.getItem("user");
-
     if (user) {
         showApp(user);
     } else {

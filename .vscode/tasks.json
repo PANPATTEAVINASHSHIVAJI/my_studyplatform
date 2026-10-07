@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Flask App",
+      "type": "shell",
+      "command": "C:/Users/avina/AppData/Local/Programs/Python/Python311-arm64/python.exe",
+      "args": ["app.py"],
+      "group": "build",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}
