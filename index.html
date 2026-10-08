@@ -182,6 +182,17 @@ let currentUser = null;
 let allBooks = [];
 let cart = [];
 
+const fallbackBooks = [
+    { id: 1, title: "Data Structures & Algorithms", author: "Robert Sedgewick", price: 45.99, category: "Computer Science", description: "Master data structures with comprehensive examples", icon: "💾" },
+    { id: 2, title: "Database Design Guide", author: "C.J. Date", price: 52.50, category: "Computer Science", description: "Learn database design principles and SQL optimization", icon: "🗄️" },
+    { id: 3, title: "Operating Systems Explained", author: "Andrew Tanenbaum", price: 58.75, category: "Computer Science", description: "Deep dive into OS concepts, scheduling, and memory management", icon: "⚙️" },
+    { id: 4, title: "Software Engineering Best Practices", author: "Ian Sommerville", price: 65.00, category: "Computer Science", description: "SDLC, design patterns, and software architecture", icon: "🏗️" },
+    { id: 5, title: "Constitutional Law Handbook", author: "H.M. Seervai", price: 48.99, category: "Law", description: "Comprehensive guide to constitutional law and rights", icon: "📘" },
+    { id: 6, title: "Contract Law Essentials", author: "G.H. Treitel", price: 42.50, category: "Law", description: "Master contract formation, terms, and remedies", icon: "📝" },
+    { id: 7, title: "Criminal Procedure Manual", author: "K.N. Chandrasekharan", price: 55.00, category: "Law", description: "Complete criminal law and procedural guide", icon: "⚖️" },
+    { id: 8, title: "Jurisprudence Theory", author: "H.L.A. Hart", price: 49.99, category: "Law", description: "Philosophy of law and legal theory fundamentals", icon: "📚" }
+];
+
 const flaskOrigin = "http://127.0.0.1:5000";
 const apiBase = window.location.origin === flaskOrigin ? "" : flaskOrigin;
 
@@ -344,11 +355,16 @@ function switchSection(section) {
 async function loadShopBooks() {
     try {
         const res = await fetch(`${apiBase}/api/books`);
+        if (!res.ok) {
+            throw new Error(`Books request failed with status ${res.status}`);
+        }
         const data = await res.json();
-        allBooks = data.books;
+        allBooks = Array.isArray(data.books) ? data.books : fallbackBooks;
         displayShopBooks(allBooks);
     } catch (err) {
         console.error("Error loading books:", err);
+        allBooks = fallbackBooks;
+        displayShopBooks(allBooks);
     }
 }
 
